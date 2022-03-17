@@ -1,0 +1,115 @@
+<p>user works!</p>
+
+<input type="text" placeholder="search" (input)="onSearch($event)">
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Phone number</th>
+        <th scope="col">Avatar</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of usersFilter">
+        <th scope="row">{{user.id}}</th>
+        <td>{{user.name}}</td>
+        <td>{{user.age}}</td>
+        <td>{{user.phone}}</td>
+        <td><img height="100px" [src]="user.avatar" alt=""></td>
+        <td><button 
+          (click)="remove(user.id)"
+          class="btn btn-danger">Delete</button>
+          <button class="btn btn-success" (click)="onEdit(user)">Edit</button>
+        </td>
+      </tr>
+     
+    </tbody>
+  </table>
+
+  <h1>Thêm mới</h1>
+  <form class="vh-100">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-9">
+  
+  
+  
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body">
+  
+              <div class="row align-items-center pt-4 pb-3">
+                <div class="col-md-3 ps-5">
+  
+                  <h6 class="mb-0">name</h6>
+  
+                </div>
+                <div class="col-md-9 pe-5">
+  
+                  <input type="text"  class="form-control form-control-lg" id="name" (input)="onChange($event, 'name')" [value]="newUser.name" />
+  
+                </div>
+              </div>
+  
+              <hr class="mx-n3">
+  
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+  
+                  <h6 class="mb-0">age</h6>
+  
+                </div>
+                <div class="col-md-9 pe-5">
+  
+                  <input type="number" class="form-control form-control-lg" id="age" (input)="onChange($event, 'age')" [value]="newUser.age"/>
+  
+                </div>
+              </div>
+  
+              <hr class="mx-n3">
+  
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+  
+                  <h6 class="mb-0">phone number</h6>
+  
+                </div>
+                <div class="col-md-9 pe-5">
+  
+                  <input type="text" class="form-control form-control-lg" id="phone" (input)="onChange($event, 'phone')" [value]="newUser.phone" />
+  
+                </div>
+              </div>
+  
+              <hr class="mx-n3">
+  
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+  
+                  <h6 class="mb-0">Upload Ảnh</h6>
+  
+                </div>
+                <div class="col-md-9 pe-5">
+  
+                  <input class="form-control form-control-lg" id="avatarUrl" type="file" (input)="onChange($event, 'avatar')" value="{{newUser.avatar}}"/>
+                  <div class="small text-muted mt-2">Upload ảnh của bạn</div>
+  
+                </div>
+              </div>
+  
+              <hr class="mx-n3">
+  
+              <div class="px-5 py-4">
+                <button type="button" class="btn btn-primary btn-lg" [disabled]="!onValidate(newUser)"  (click)="onSubmit()">Tạo thêm </button>
+              </div>
+  
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </form>
+  <!-- ngFor sẽ nhận theo thẻ mở thẻ đóng tự động lặp cho đến khi hết mảng -->

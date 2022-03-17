@@ -1,0 +1,49 @@
+<p>product works!</p>
+<div class="container">
+
+  {{productForm.value| json}}
+  <!-- có thể dùng cái này để push vào mảng -->
+</div>
+<div class="container">
+  <!-- pipe nè -->
+  {{newProduct | json}}
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+    <form action="" #productForm="ngForm" (ngSubmit)="onSubmit(productForm.value)">
+      <input [(ngModel)]="newProduct.name" class="form-control form-control-lg" name="name" type="text" placeholder="tên sản phẩm"> <br>
+      <input [(ngModel)]="newProduct.desc" class="form-control form-control-lg" name="desc" type="text" placeholder="Mô tả"> <br>
+      <input [(ngModel)]="newProduct.price" class="form-control form-control-lg" name="price" type="number" placeholder="giá"> <br>
+      <button class="btn btn-primary" type="submit">Lưu</button>
+    </form></div>
+
+    <div class="col-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>
+              Tên sp
+            </th>
+            <th>Mô tả</th>
+            <th>Giá</th><td>action</td>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let item of product">
+            <td>{{item.name}}</td>
+            <td>{{item.desc}}</td>
+            <td>{{item.price}}</td>
+            <td><a class="btn btn-info" (click)="edit(item)">Sửa</a>
+              <button class="btn btn-alert" type="button" (click)="remove(item.name)">Xóa</button>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+    </div>
+  </div>
+
