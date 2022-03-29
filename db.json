@@ -1,0 +1,64 @@
+{
+  "students": [
+    {
+      "name": "123",
+      "class": "123",
+      "id": 4
+    },
+    {
+      "name": "123",
+      "class": "123",
+      "id": 5
+    },
+    {
+      "name": "123",
+      "class": "123",
+      "id": 6
+    },
+    {
+      "name": "hello",
+      "class": "hello",
+      "id": 7
+    },
+    {
+      "name": "duke ne",
+      "class": "duke ne",
+      "id": 8
+    },
+    {
+      "name": "Dukeondab",
+      "class": "We16304",
+      "id": 9
+    },
+    {
+      "name": "Dukeondab",
+      "class": "123",
+      "id": 10
+    },
+    {
+      "name": "hiệp ăn cứt",
+      "class": "123",
+      "id": 11
+    }
+  ],
+  "posts": [
+    {
+      "title": "hello",
+      "content": "hello world\n",
+      "status": "1",
+      "id": 1
+    },
+    {
+      "title": "tiêu đề số 2",
+      "content": "nội dung 2",
+      "status": "1",
+      "id": 2
+    },
+    {
+      "title": "tiêu đề số 3",
+      "content": "nội dung 3",
+      "status": 0,
+      "id": 3
+    }
+  ]
+}

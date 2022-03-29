@@ -1,0 +1,13 @@
+<!-- sử dụng pipe sang json để show ra giá trị input -->
+{{studentForm.value| json}}
+
+<form action="" #studentForm="ngForm" (ngSubmit)="onSubmit(studentForm.value)">
+  <input [(ngModel)]="newStudent.name" required minlength="6" #name="ngModel" type="text" name="name" class="form-control" placeholder="Tên">
+  <div *ngIf="studentForm.form.dirty" >
+  <p  class="text-danger" *ngIf="name.errors?.['required']">Tên không được để trống</p>
+  <p class="text-danger" *ngIf="name.errors?.['minlength']">Tối thiểu 6 kí tự</p></div>
+  <input [(ngModel)]="newStudent.class" type="text" #class="ngModel" name="class" class="form-control" required="" maxlength="12" placeholder="class">
+  <button class="btn btn-primary" [disabled]="studentForm.form.invalid" type="submit">Thêm</button>
+</form>
+<!-- cái disables dùng form invalid để mặc định tắt nút bấm -->
+<!-- thuộc tính isDirty cái form đã bị đụng chamj vào hay chưa -->

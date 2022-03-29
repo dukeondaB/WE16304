@@ -1,0 +1,35 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <app-student-form></app-student-form>
+    </div>
+    <div class="col-6">
+    <table class="table">
+
+      <thead>
+        <tr>
+          <th>
+            id
+          </th>
+          <th>name</th>
+          <th>class</th>
+          <td>Action</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of students">
+          <td>
+            {{item.id}}
+          </td>
+          <td>{{item.name}}</td>
+          <td>{{item.class}}</td>
+          <td><a routerLink="/students/{{item.id}}"><button class="btn btn-primary">Detail</button></a>
+            <a routerLink="/students/form/{{item.id}}" class="btn btn-info">Sửa</a>
+            <button (click)="delete(item.id)" class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table></div>
+  </div>
+</div>

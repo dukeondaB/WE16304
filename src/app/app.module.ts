@@ -1,28 +1,54 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 // import thành phần form
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { ProductComponent } from './product/product.component';
-
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import {HttpClientModule} from '@angular/common/http'
+import { StudentComponent } from './student/student.component';
+import { StudentDetailComponent } from './student-detail/student-detail.component';
+import { StudentFormComponent } from './student-form/student-form.component';
+import { StudentService } from './services/student.service';
+import { HeaderComponent } from './layout/header/header.component';
+import { AsideComponent } from './layout/aside/aside.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { PostComponent } from './post/post.component';
+import { PostDetailComponent } from './post-detail/post-detail.component';
+import { PostFormComponent } from './post-form/post-form.component';
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     LoginComponent,
-    ProductComponent
+    ProductComponent,
+    ProductDetailComponent,
+    StudentComponent,
+    StudentDetailComponent,
+    StudentFormComponent,
+    HeaderComponent,
+    AsideComponent,
+    FooterComponent,
+    PostComponent,
+    PostDetailComponent,
+    PostFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule // đưa vào để các component có thể sử dụng
+    FormsModule, // đưa vào để các component có thể sử dụng
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    StudentService
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

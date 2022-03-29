@@ -1,0 +1,23 @@
+<div class="container">
+  {{postForm.value | json}}
+  <form [formGroup]="postForm" class="form-group" (ngSubmit)="onSubmit(postForm.value)">
+<!-- formGruop = postForm ở bên ts -->
+
+  <input placeholder="đâu là tiêu đề nè" type="text" class="form-control" formControlName="title" id="">
+  <div *ngIf="postForm.get('title')?.dirty">
+    <p *ngIf="postForm.get('title')?.errors?.['required']">Tiêu đề bắt buộc nhập</p>
+
+  </div>
+    <textarea formControlName="content" id="" cols="30" rows="10" class="form-control" placeholder="đây là nội dung nè"></textarea>
+    <div *ngIf="postForm.get('content')?.dirty" class="text-danger">
+      <p *ngIf="postForm.get('content')?.errors?.['required']">nội dung bắt buộc dùng</p>
+      <p *ngIf="postForm.get('content')?.errors?.['minlength']">Nội dung nhập tối thiểu là 6</p>
+    </div>
+ <div>
+    <label for="status">Status:</label>
+  <input type="radio" formControlName="status" value="0">
+    <input type="radio" formControlName="status" value="1">
+    </div>
+    <button class="btn btn-success">Submit</button>
+  </form>
+</div>
